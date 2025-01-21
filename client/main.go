@@ -1,13 +1,16 @@
 package main
-
-const (
-	PORT = ":8080"
-)
-
 import(
+	proto "www.github.com/amanraj8848/gRPC-golang/proto"
 	"log"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
+
+const (
+	PORT = ":2500"
+)
+
+
 
 func main() {
 	conn, err := grpc.Dial("localhost" + PORT, grpc.WithTransportCredentials(insecure.NewCredentials()))
@@ -16,5 +19,9 @@ func main() {
 	}	
 	defer conn.Close() 
 
-	client := pb.NewGreetServiceClient(conn)
+	client := proto.NewGreetServiceClient(conn) // registring the client with the server
+	// req := &proto.HelloRequest{
+	// 	name: "Aman",
+	// }	
+	callSayHello(client)
 }
