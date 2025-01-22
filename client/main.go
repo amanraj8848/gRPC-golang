@@ -1,9 +1,11 @@
 package main
-import(
-	proto "www.github.com/amanraj8848/gRPC-golang/proto"
+
+import (
 	"log"
+
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
+	proto "www.github.com/amanraj8848/gRPC-golang/proto"
 )
 
 const (
@@ -18,10 +20,10 @@ func main() {
 		log.Fatalf(" failed to connect: %v", err)
 	}	
 	defer conn.Close() 
-
-	client := proto.NewGreetServiceClient(conn) // registring the client with the server
-	// req := &proto.HelloRequest{
-	// 	name: "Aman",
-	// }	
-	callSayHello(client)
+	client := proto.NewGreetServiceClient(conn) // registring the client with the server	
+	names := &proto.NameList{
+		Name: []string{"Buddha","Lao Tzu","Nirvana","Socrates","Rama","Krishna"},
+	}
+	callSayHelloServerStreaming(client,names);
+	// callSayHello(client)
 }

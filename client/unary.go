@@ -16,5 +16,5 @@ func callSayHello(client proto.GreetServiceClient){
 	if err != nil {
 		log.Fatalf("Error while calling SayHello: %v", err)
 	}
-	log.Printf("Response from Server: %v", res.Message)
+	log.Printf("Response from Server: \n %v", res.Message)
 }
