@@ -24,9 +24,3 @@ func main() {
 	}
 
 }
-// func handler
-// func (s *server) SayHello(ctx context.Context, req *proto.NoParam) (*proto.HelloReply,error){
-// 	return &proto.HelloReply{
-// 		message: "Hello from Server",
-// 	}, nil;
-// }
