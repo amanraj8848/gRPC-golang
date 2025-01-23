@@ -24,6 +24,7 @@ func main() {
 	names := &proto.NameList{
 		Name: []string{"Buddha","Lao Tzu","Nirvana","Socrates","Rama","Krishna"},
 	}
-	callSayHelloServerStreaming(client,names);
+	// callSayHelloServerStreaming(client,names);
 	// callSayHello(client)
+	callSayHelloClientStreaming(client,names)
 }
